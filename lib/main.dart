@@ -8,12 +8,9 @@ class BMI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Color(0xFF0F1337),
-      accentColor: Color(0xFFDF005A),
-      
-     textTheme: TextTheme().copyWith(
-       bodyText2: TextStyle(fontSize: 30,color: Color(0xFFFFFFFF),),),
-      scaffoldBackgroundColor: Color(0xFF0F1337),),
+     theme: ThemeData.dark().copyWith(
+       primaryColor: Color(0xFF0F1337),scaffoldBackgroundColor: Colors.blue,
+     ),
       
       home: InputPage(),
     );
