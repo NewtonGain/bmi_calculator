@@ -5,7 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class InputPage extends StatefulWidget {
-  const InputPage({ Key? key }) : super(key: key);
+  final activeCardColor= Color(0xFF0F1337);
+  final inActiveColor= Color(0xFF0F1937);
 
   @override
   _InputPageState createState() => _InputPageState();
@@ -22,11 +23,13 @@ class _InputPageState extends State<InputPage> {
        children: [
          Expanded(child: 
          Row(
-           mainAxisAlignment: MainAxisAlignment.center,
+          
            children: [
-             Expanded(child: Reuseable(color:Color(0xFF0F1337), iconContent: 
-               IconText(FontAwesomeIcons.mars, "Male"),
-           ),),
+             Expanded(child: GestureDetector(onTap: (){},
+               child: Reuseable(color:Color(0xFF0F1337), iconContent: 
+                 IconText(FontAwesomeIcons.mars, "Male"),
+                        ),
+             ),),
              Expanded(child: Reuseable(color:Color(0xFF0F1337), iconContent: 
                IconText(FontAwesomeIcons.venus, "Female"),
            ),),

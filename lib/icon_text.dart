@@ -10,8 +10,8 @@ class IconText extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,  
       children: [ 
-        Icon(icon),
-       Text('$label'),
+        Icon(icon, size: 70,),
+       Text('$label',style: TextStyle(fontSize: 30),),
       ],
     );
   }
