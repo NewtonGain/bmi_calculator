@@ -36,20 +36,12 @@ class _InputPageState extends State<InputPage> {
          ),
          
          ),
-         
-
-
-         
           Expanded(child: 
          Row(
            children: [
              Expanded(child: Reuseable(color:Color(0xFF0F1337), iconContent: null, ),),
-            
-             
            ],
-           
          ),
-         
          ),
           Expanded(child: 
          Row(
@@ -64,7 +56,7 @@ class _InputPageState extends State<InputPage> {
          ),
         
         Container(
-          color: Colors.pink,
+          color: Color(0xFFDE005A),
           height: 60,
           width: double.infinity
         )
