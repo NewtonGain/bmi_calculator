@@ -1,10 +1,9 @@
-
+import 'package:bmi_calculator/height.dart';
 import 'package:bmi_calculator/reuseable.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainPage extends StatefulWidget {
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -38,8 +37,33 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-double _currentSliderValue = 20;
-double increament=0;
+  double _currentSliderValue = 20;
+  int _counter1 = 0;
+  int _counter2 = 0;
+
+  void _incrementCounter1() {
+    setState(() {
+      _counter1++;
+    });
+  }
+
+  void _incrementCounter2() {
+    setState(() {
+      _counter2++;
+    });
+  }
+
+  void _decrementCounter1() {
+    setState(() {
+      _counter1--;
+    });
+  }
+
+  void _decrementCounter2() {
+    setState(() {
+      _counter2--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,40 +119,27 @@ double increament=0;
               margin: EdgeInsets.all(20),
               child: Expanded(
                 child: Column(
-                  children: 
-                    [Text('HEIGHT',style: TextStyle(fontSize: 16),),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        
-                        Text(_currentSliderValue.round().toString(),style: TextStyle(fontSize: 85),),
-                           Padding(
-                             padding: const EdgeInsets.only(top: 45),
-                             child: Text('cm'),
-                           ),
-                        
-                      ],
+                  children: [
+                    Text(
+                      'HEIGHT',
+                      style: TextStyle(fontSize: 16),
                     ),
-                      Row(
-                      
+                    Height(currentSliderValue: _currentSliderValue),
+                    Row(
                       children: [
-                       
                         Expanded(
                           child: Slider(
-                        value: _currentSliderValue,
-                        activeColor: Color(0xFFFB0165),
-                        inactiveColor: Colors.white,
-                     
-
-                        max: 200,
-                        
-                        label: _currentSliderValue.round().toString(),
-                        onChanged: (double value) {
-                          setState(() {
-                            _currentSliderValue = value;
-                          });
-                        },
-                      ),
+                            value: _currentSliderValue,
+                            activeColor: Color(0xFFFB0165),
+                            inactiveColor: Colors.white,
+                            max: 200,
+                            label: _currentSliderValue.round().toString(),
+                            onChanged: (double value) {
+                              setState(() {
+                                _currentSliderValue = value;
+                              });
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -136,69 +147,75 @@ double increament=0;
                 ),
               ),
             ),
-            SizedBox(
-              height: 6,
-            ),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                       
-                        Text('HEIGHT'),
-                        Text('77',style: TextStyle(fontSize: 58),),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            FloatingActionButton(onPressed: (){
-                              setState(() {
-                                increament++;
-                                
-                              });
-                            },child: Icon(Icons.remove),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
-                             FloatingActionButton(onPressed: (){
-                              setState(() {
-                                increament++;
-                                
-                              });
-                            },child: Icon(Icons.add),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
-                             
-                                      
-                          ],
-                        )
-                      ],
-                    )
+                    child: Card(
+                      color: Color(0xFF141A3B),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('WEIGHT'),
+                          Text(
+                            '$_counter1',
+                            style: TextStyle(fontSize: 58),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: _decrementCounter1,
+                                child: Icon(Icons.remove),
+                                backgroundColor: Color(0xFF1C203C),
+                                foregroundColor: Colors.white,
+                              ),
+                              FloatingActionButton(
+                                onPressed: _incrementCounter1,
+                                child: Icon(Icons.add),
+                                backgroundColor: Color(0xFF1C203C),
+                                foregroundColor: Colors.white,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-                 Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                       
-                        Text('AGE'),
-                        Text('77',style: TextStyle(fontSize: 58),),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            FloatingActionButton(onPressed: (){
-                              setState(() {
-                                increament++;
-                                
-                              });
-                            },child: Icon(Icons.remove),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
-                             FloatingActionButton(onPressed: (){
-                              setState(() {
-                                increament++;
-                                
-                              });
-                            },child: Icon(Icons.add),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
-                             
-                                      
-                          ],
-                        )
-                      ],
-                    )
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Expanded(
+                    child: Card(
+                      color: Color(0xFF141A3B),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('AGE'),
+                          Text(
+                            '$_counter2',
+                            style: TextStyle(fontSize: 58),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: _decrementCounter2,
+                                child: Icon(Icons.remove),
+                                backgroundColor: Color(0xFF1C203C),
+                                foregroundColor: Colors.white,
+                              ),
+                              FloatingActionButton(
+                                onPressed: _incrementCounter2,
+                                child: Icon(Icons.add),
+                                backgroundColor: Color(0xFF1C203C),
+                                foregroundColor: Colors.white,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -206,8 +223,14 @@ double increament=0;
             Container(
               width: double.infinity,
               height: 50,
-              color: Color(0xFFFD0225),
-              child: TextButton(child: Text('Calculate Your BMI',style: TextStyle(fontSize: 20),),onPressed: (){},),
+              color: Color(0xFFF90065),
+              child: TextButton(
+                child: Text(
+                  'Calculate Your BMI',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                onPressed: () {},
+              ),
             )
           ],
         ),
@@ -215,3 +238,4 @@ double increament=0;
     );
   }
 }
+
