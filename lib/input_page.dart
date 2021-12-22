@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-
+double _currentSliderValue = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -89,15 +89,42 @@ class _MainPageState extends State<MainPage> {
             SizedBox(
               height: 6,
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: container(
-                      colors: Color(0xFF26294D),
+            Card(
+              color: Color(0xFF141A3B),
+              margin: EdgeInsets.all(20),
+              child: Expanded(
+                child: Column(
+                  children: 
+                    [Text('Height',style: TextStyle(fontSize: 16),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                        Text(_currentSliderValue.round().toString(),style: TextStyle(fontSize: 55),),
+                        Text('cm'),
+                      ],
                     ),
-                  ),
-                ],
+                      Row(
+                      
+                      children: [
+                       
+                        Expanded(
+                          child: Slider(
+                        value: _currentSliderValue,
+                        max: 200,
+                        
+                        label: _currentSliderValue.round().toString(),
+                        onChanged: (double value) {
+                          setState(() {
+                            _currentSliderValue = value;
+                          });
+                        },
+                      ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
