@@ -39,6 +39,7 @@ class _MainPageState extends State<MainPage> {
   }
 
 double _currentSliderValue = 20;
+double increament=0;
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +96,17 @@ double _currentSliderValue = 20;
               child: Expanded(
                 child: Column(
                   children: 
-                    [Text('Height',style: TextStyle(fontSize: 16),),
+                    [Text('HEIGHT',style: TextStyle(fontSize: 16),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         
-                        Text(_currentSliderValue.round().toString(),style: TextStyle(fontSize: 55),),
-                        Text('cm'),
+                        Text(_currentSliderValue.round().toString(),style: TextStyle(fontSize: 85),),
+                           Padding(
+                             padding: const EdgeInsets.only(top: 45),
+                             child: Text('cm'),
+                           ),
+                        
                       ],
                     ),
                       Row(
@@ -111,12 +116,16 @@ double _currentSliderValue = 20;
                         Expanded(
                           child: Slider(
                         value: _currentSliderValue,
+                        activeColor: Color(0xFFFB0165),
+                        inactiveColor: Colors.white,
+                     
+
                         max: 200,
                         
                         label: _currentSliderValue.round().toString(),
                         onChanged: (double value) {
                           setState(() {
-                            _currentSliderValue = value;
+                            _currentSliderValue.round().toString();
                           });
                         },
                       ),
@@ -134,11 +143,31 @@ double _currentSliderValue = 20;
               child: Row(
                 children: [
                   Expanded(
-                    child: container(
-                      colors: Color(0xFF26294D),
-                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                       
+                        Text('HEIGHT'),
+                        Text('77',style: TextStyle(fontSize: 58),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            FloatingActionButton(onPressed: (){
+                              setState(() {
+                                increament++;
+                                
+                              });
+                            },child: Icon(Icons.remove),backgroundColor: Color(0xFFFB0165),),
+                             FloatingActionButton(onPressed: (){},child: Icon(Icons.add)),
+                             
+
+                          ],
+                        )
+                      ],
+                    )
                   ),
-                  Expanded(child: container(colors: Color(0xFF26294D)))
+                  Expanded(
+                    child: container(colors: Color(0xFF26294D),),),
                 ],
               ),
             ),
