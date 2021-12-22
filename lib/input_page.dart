@@ -1,8 +1,10 @@
+
 import 'package:bmi_calculator/reuseable.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainPage extends StatefulWidget {
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -35,6 +37,8 @@ class _MainPageState extends State<MainPage> {
         femaleCardColor = inActiveCardColor;
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
