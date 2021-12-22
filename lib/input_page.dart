@@ -64,7 +64,7 @@ double increament=0;
                           updateColor(1);
                         });
                       },
-                      child: container(
+                      child: Containers(
                         colors: maleCardColor,
                         iconContent: Iconcontents(
                             icon: FontAwesomeIcons.mars, label: 'Male'),
@@ -78,7 +78,7 @@ double increament=0;
                         updateColor2(2);
                       });
                     },
-                    child: container(
+                    child: Containers(
                       colors: femaleCardColor,
                       iconContent: Iconcontents(
                           icon: FontAwesomeIcons.venus, label: 'Female'),
@@ -125,7 +125,7 @@ double increament=0;
                         label: _currentSliderValue.round().toString(),
                         onChanged: (double value) {
                           setState(() {
-                            _currentSliderValue.round().toString();
+                            _currentSliderValue = value;
                           });
                         },
                       ),
@@ -157,17 +157,49 @@ double increament=0;
                                 increament++;
                                 
                               });
-                            },child: Icon(Icons.remove),backgroundColor: Color(0xFFFB0165),),
-                             FloatingActionButton(onPressed: (){},child: Icon(Icons.add)),
+                            },child: Icon(Icons.remove),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
+                             FloatingActionButton(onPressed: (){
+                              setState(() {
+                                increament++;
+                                
+                              });
+                            },child: Icon(Icons.add),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
                              
-
+                                      
                           ],
                         )
                       ],
                     )
                   ),
-                  Expanded(
-                    child: container(colors: Color(0xFF26294D),),),
+                 Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                       
+                        Text('AGE'),
+                        Text('77',style: TextStyle(fontSize: 58),),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            FloatingActionButton(onPressed: (){
+                              setState(() {
+                                increament++;
+                                
+                              });
+                            },child: Icon(Icons.remove),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
+                             FloatingActionButton(onPressed: (){
+                              setState(() {
+                                increament++;
+                                
+                              });
+                            },child: Icon(Icons.add),backgroundColor: Color(0xFF1C203C),foregroundColor: Colors.white,),
+                             
+                                      
+                          ],
+                        )
+                      ],
+                    )
+                  ),
                 ],
               ),
             ),
@@ -175,6 +207,7 @@ double increament=0;
               width: double.infinity,
               height: 50,
               color: Color(0xFFFD0225),
+              child: TextButton(child: Text('Calculate Your BMI',style: TextStyle(fontSize: 20),),onPressed: (){},),
             )
           ],
         ),

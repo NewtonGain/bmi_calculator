@@ -30,11 +30,11 @@ class Iconcontents extends StatelessWidget {
   }
 }
 
-class container extends StatelessWidget {
+class Containers extends StatelessWidget {
   final Color colors;
 
   final Widget? iconContent;
-  container({required this.colors, this.iconContent});
+  Containers({required this.colors, this.iconContent});
 
   @override
   Widget build(BuildContext context) {
