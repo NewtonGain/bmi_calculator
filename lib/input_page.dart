@@ -3,7 +3,6 @@ import 'package:bmi_calculator/reuseable.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class MainPage extends StatefulWidget {
   @override
   State<MainPage> createState() => _MainPageState();
@@ -38,10 +37,6 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  double _currentSliderValue = 20;
-  int _counter1 = 40;
-  int _counter2 = 20;
-
   void _incrementCounter1() {
     setState(() {
       _counter1++;
@@ -66,15 +61,17 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  int _weight = 45;
-  double _height = 99.0;
+  double _currentSliderValue = 20;
+  int _counter1 = 40;
+  int _counter2 = 20;
+
   String? result;
   String? helpTips;
   Color? backgroundColor;
   void bmiCalculation() {
-    final bmiHeightCm = _height.round();
+    final bmiHeightCm = _currentSliderValue.round();
     final bmiHeightM = bmiHeightCm / 100;
-    final bmiWeight = _weight;
+    final bmiWeight = _counter1;
     final bmi = bmiWeight / (bmiHeightM * bmiHeightM);
     if (bmi <= 18.5) {
       result = "Under Weight";
